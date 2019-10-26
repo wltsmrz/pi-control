@@ -1,11 +1,10 @@
-# PI controller with feedforward component
+### PI controller with feedforward component
 
-```nim
-var ctrl = init_controller(rate=100.0, min= -100.0, max= 100.0)
-
-ctrl.set_gain(kp=1.0, ki=1.0, kf=1.0)
-
-let u = ctrl.update(sp=10.0, pv=1.0, f=1.0)
-```
+* `init_controller(rate: float, min: float, max: float): PIControl`
+* `set_gain(control: var PIControl, kp: float, ki: float, kf: float): void`
+* `clear_gain(control: var PIControl): void`
+* `pause_i(control: var PIControl): void`
+* `resume_i(control: var PIControl): void`
+* `update(control: var PIControl, sp: float, pv: float, f: float = 0.0): float`
 
 ![](./graph.png)
