@@ -27,8 +27,8 @@ proc clear_gain*(control: var PIControl) =
   control.ki = 0.0
   control.kf = 0.0
 
-proc update*(control: var PIControl, s: float, m: float, f: float = 0.0): float =
-  let error = s - m
+proc update*(control: var PIControl, sp: float, pv: float, f: float = 0.0): float =
+  let error = sp - pv
   control.p = control.kp * error
   control.i = control.i + error * control.ki * control.di
   control.f = control.kf * f
